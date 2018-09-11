@@ -1,0 +1,72 @@
+{
+	"name": "LocalInstance_Guru",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServer_local_guru",
+			"type": "LinkedServiceReference"
+		},
+		"type": "SqlServerTable",
+		"structure": [
+			{
+				"name": "Year",
+				"type": "Int32"
+			},
+			{
+				"name": "Product line",
+				"type": "String"
+			},
+			{
+				"name": "Product type",
+				"type": "String"
+			},
+			{
+				"name": "Product",
+				"type": "String"
+			},
+			{
+				"name": "Order method type",
+				"type": "String"
+			},
+			{
+				"name": "Retailer country",
+				"type": "String"
+			},
+			{
+				"name": "Revenue",
+				"type": "Decimal"
+			},
+			{
+				"name": "Planned revenue",
+				"type": "Decimal"
+			},
+			{
+				"name": "Product cost",
+				"type": "Decimal"
+			},
+			{
+				"name": "Quantity",
+				"type": "Decimal"
+			},
+			{
+				"name": "Unit cost",
+				"type": "Decimal"
+			},
+			{
+				"name": "Unit price",
+				"type": "Decimal"
+			},
+			{
+				"name": "Gross profit",
+				"type": "Decimal"
+			},
+			{
+				"name": "Unit sale price",
+				"type": "Decimal"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[AdfDemoTable]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,47 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Azure_File_To_Local_SQL_Instance",
+				"type": "Copy",
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"source": {
+						"type": "FileSystemSource",
+						"recursive": false
+					},
+					"sink": {
+						"type": "SqlSink",
+						"writeBatchSize": 10000
+					},
+					"enableStaging": false,
+					"dataIntegrationUnits": 0,
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": "Year: Year, Product line: Product line, Product type: Product type, Product: Product, Order method type: Order method type, Retailer country: Retailer country, Revenue: Revenue, Planned revenue: Planned revenue, Product cost: Product cost, Quantity: Quantity, Unit cost: Unit cost, Unit price: Unit price, Gross profit: Gross profit, Unit sale price: Unit sale price"
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Source_File",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "LocalInstance_Guru",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

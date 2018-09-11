@@ -1,0 +1,82 @@
+{
+	"name": "Source_File",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "FileServer1",
+			"type": "LinkedServiceReference"
+		},
+		"type": "FileShare",
+		"structure": [
+			{
+				"name": "Year",
+				"type": "String"
+			},
+			{
+				"name": "Product line",
+				"type": "String"
+			},
+			{
+				"name": "Product type",
+				"type": "String"
+			},
+			{
+				"name": "Product",
+				"type": "String"
+			},
+			{
+				"name": "Order method type",
+				"type": "String"
+			},
+			{
+				"name": "Retailer country",
+				"type": "String"
+			},
+			{
+				"name": "Revenue",
+				"type": "String"
+			},
+			{
+				"name": "Planned revenue",
+				"type": "String"
+			},
+			{
+				"name": "Product cost",
+				"type": "String"
+			},
+			{
+				"name": "Quantity",
+				"type": "String"
+			},
+			{
+				"name": "Unit cost",
+				"type": "String"
+			},
+			{
+				"name": "Unit price",
+				"type": "String"
+			},
+			{
+				"name": "Gross profit",
+				"type": "String"
+			},
+			{
+				"name": "Unit sale price",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"format": {
+				"type": "TextFormat",
+				"columnDelimiter": ",",
+				"rowDelimiter": "",
+				"nullValue": "\\N",
+				"treatEmptyAsNull": true,
+				"skipLineCount": 0,
+				"firstRowAsHeader": true
+			},
+			"fileName": "WA_Retail-SalesMarketing_-ProfitCost.csv",
+			"folderPath": ""
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

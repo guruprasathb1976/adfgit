@@ -1,0 +1,6 @@
+{
+	"name": "Guru-Local-Instance",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}
