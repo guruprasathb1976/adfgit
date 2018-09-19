@@ -1,1 +1,24 @@
-{}
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "dfdsdemo"
+		},
+		"FileServer1_password": {
+			"value": ""
+		},
+		"SqlServer_local_guru_connectionString": {
+			"value": ""
+		},
+		"Source_File_properties_typeProperties_fileName": {
+			"value": "WA_Retail-SalesMarketing_-ProfitCost.csv"
+		},
+		"Source_File_properties_typeProperties_folderPath": {
+			"value": ""
+		},
+		"FileServer1_properties_typeProperties_userId": {
+			"value": "AZURE\\meidacopdiag140"
+		}
+	}
+}

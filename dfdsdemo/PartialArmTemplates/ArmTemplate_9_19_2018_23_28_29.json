@@ -6,26 +6,6 @@
 			"type": "string",
 			"metadata": "Data Factory Name",
 			"defaultValue": "dfdsdemo"
-		},
-		"FileServer1_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'FileServer1'"
-		},
-		"SqlServer_local_guru_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'SqlServer_local_guru'"
-		},
-		"Source_File_properties_typeProperties_fileName": {
-			"type": "string",
-			"defaultValue": "WA_Retail-SalesMarketing_-ProfitCost.csv"
-		},
-		"Source_File_properties_typeProperties_folderPath": {
-			"type": "string",
-			"defaultValue": ""
-		},
-		"FileServer1_properties_typeProperties_userId": {
-			"type": "string",
-			"defaultValue": "AZURE\\meidacopdiag140"
 		}
 	},
 	"variables": {
@@ -41,7 +21,6 @@
 					{
 						"name": "Azure_File_To_Local_SQL_Instance",
 						"type": "Copy",
-						"dependsOn": [],
 						"policy": {
 							"timeout": "7.00:00:00",
 							"retry": 0,
@@ -49,7 +28,6 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
 						"typeProperties": {
 							"source": {
 								"type": "FileSystemSource",
@@ -84,20 +62,17 @@
 						"inputs": [
 							{
 								"referenceName": "Source_File",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "LocalInstance_Guru",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					}
-				],
-				"annotations": []
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/Source_File')]",
@@ -113,7 +88,6 @@
 					"referenceName": "SqlServer_local_guru",
 					"type": "LinkedServiceReference"
 				},
-				"annotations": [],
 				"type": "SqlServerTable",
 				"structure": [
 					{
@@ -176,10 +150,7 @@
 				"typeProperties": {
 					"tableName": "[concat('[', 'dbo].[AdfDemoTable]')]"
 				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/SqlServer_local_guru')]"
-			]
+			}
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/Source_File')]",
@@ -190,7 +161,6 @@
 					"referenceName": "FileServer1",
 					"type": "LinkedServiceReference"
 				},
-				"annotations": [],
 				"type": "FileShare",
 				"structure": [
 					{
@@ -260,60 +230,10 @@
 						"skipLineCount": 0,
 						"firstRowAsHeader": true
 					},
-					"fileName": "[parameters('Source_File_properties_typeProperties_fileName')]",
-					"folderPath": "[parameters('Source_File_properties_typeProperties_folderPath')]"
+					"fileName": "WA_Retail-SalesMarketing_-ProfitCost.csv",
+					"folderPath": ""
 				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/FileServer1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/FileServer1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "FileServer",
-				"typeProperties": {
-					"host": "\\\\meidacopdiag140.file.core.windows.net\\filedump",
-					"userId": "[parameters('FileServer1_properties_typeProperties_userId')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('FileServer1_password')]"
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SqlServer_local_guru')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "SqlServer",
-				"typeProperties": {
-					"connectionString": "[parameters('SqlServer_local_guru_connectionString')]"
-				},
-				"connectVia": {
-					"referenceName": "Guru-Local-Instance",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/Guru-Local-Instance')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Guru-Local-Instance')]",
-			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "SelfHosted",
-				"typeProperties": {}
-			},
-			"dependsOn": []
+			}
 		}
 	]
 }
