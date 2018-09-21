@@ -12,6 +12,16 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "/WA_Retail-SalesMarketing_-ProfitCost.csv"
+					},
+					{
+						"name": "Destination",
+						"value": "[dbo].[AdfDemoTable]"
+					}
+				],
 				"typeProperties": {
 					"source": {
 						"type": "FileSystemSource",

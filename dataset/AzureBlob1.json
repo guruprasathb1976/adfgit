@@ -1,0 +1,82 @@
+{
+	"name": "AzureBlob1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"type": "AzureBlob",
+		"structure": [
+			{
+				"name": "Year",
+				"type": "String"
+			},
+			{
+				"name": "Product line",
+				"type": "String"
+			},
+			{
+				"name": "Product type",
+				"type": "String"
+			},
+			{
+				"name": "Product",
+				"type": "String"
+			},
+			{
+				"name": "Order method type",
+				"type": "String"
+			},
+			{
+				"name": "Retailer country",
+				"type": "String"
+			},
+			{
+				"name": "Revenue",
+				"type": "String"
+			},
+			{
+				"name": "Planned revenue",
+				"type": "String"
+			},
+			{
+				"name": "Product cost",
+				"type": "String"
+			},
+			{
+				"name": "Quantity",
+				"type": "String"
+			},
+			{
+				"name": "Unit cost",
+				"type": "String"
+			},
+			{
+				"name": "Unit price",
+				"type": "String"
+			},
+			{
+				"name": "Gross profit",
+				"type": "String"
+			},
+			{
+				"name": "Unit sale price",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"format": {
+				"type": "TextFormat",
+				"columnDelimiter": ",",
+				"rowDelimiter": "",
+				"nullValue": "\\N",
+				"treatEmptyAsNull": true,
+				"skipLineCount": 0,
+				"firstRowAsHeader": true
+			},
+			"fileName": "WA_Retail-SalesMarketing_-ProfitCost.csv",
+			"folderPath": "bootdiagnostics-anetablea-4f7aecb4-397c-4207-bc45-ce59bab6bd3f"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
