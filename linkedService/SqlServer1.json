@@ -1,0 +1,16 @@
+{
+	"name": "SqlServer1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=True;data source=DESKTOP-2NHIBS6;initial catalog=Emaar_Poc",
+			"userName": "DANIEL",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI1NTdlNTFiMi01MDg1LTQ4NjEtOWE1OS0xYjkyMGFlY2MyMmMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "DanielLOCAL",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
